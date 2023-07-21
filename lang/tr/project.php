@@ -1,0 +1,38 @@
+<?php
+return[
+    'categories' => 'Kategoriler',
+    'homepage' => 'Anasayfa',
+    'contact' => 'İletişim',
+    'login' => 'Giriş Yap',
+    'register' => 'Kayıt Ol',
+    'cart' => 'Sepet',
+    'go_cart' => 'Sepete Git',
+    'total' => 'Toplam',
+    'books' => 'Kitaplar',
+    'price' => 'Fiyat',
+    'add_to_cart' => 'Sepete Ekle',
+    'contact_us' => 'Bize Ulaşın',
+    'name_surname' => 'Ad-Soyad',
+    'phone' => 'Telefon Numarası',
+    'subject' => 'Konu',
+    'message' => 'Mesaj',
+    'sent' => 'Gönder',
+    'social_media' => 'Sosyal Medya Hesaplarımız',
+    'forms' => 'Lütfen formu doldurun.',
+    'email_address' => 'Email Adresi',
+    'password' => 'Şifre',
+    'password_t' => 'Şifreyi Tekrar Giriniz',
+    'remember' => 'Beni Hatırla',
+    'password_f' => 'Şifrenizi mi unuttunuz?',
+    'quantity' => 'Adet',
+    'product' => 'Ürün',
+    'price' => 'Fiyat',
+    'total_price' => 'Toplam Ürün Tutarı',
+    'drop' => 'Kaldır',
+    'cart_total' => 'Sepet Tutarı',
+    'back' => 'Alışverişe Devam Et',
+    'pay' => 'Ödeme',
+    'logout' => 'Çıkış Yap'
+
+
+];
