@@ -32,7 +32,9 @@ return[
     'cart_total' => 'Sepet Tutarı',
     'back' => 'Alışverişe Devam Et',
     'pay' => 'Ödeme',
-    'logout' => 'Çıkış Yap'
+    'logout' => 'Çıkış Yap',
+    'products' => 'Elektronik Ürünler',
+
 
 
 ];

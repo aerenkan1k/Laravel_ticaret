@@ -27,7 +27,7 @@
                                 @elseif(isset($details['name']))
                                     {{ $details['name'] }}
                                 @else
-                                    <!-- diğer kategori -->
+                                    <!-- if elseler foreache çevrilecek -->
                                 @endif
                             </h4>
                             </div>
@@ -52,7 +52,7 @@
         <tr>
             <td colspan="5" style="text-align:right;">
                 <form action="/session" method="POST">
-                <a href="{{ url('/') }}" class="btn btn-danger"> <i class="fa fa-arrow-left"></i>{{ __('project.back') }}</a>
+                <a href="{{ url('home') }}" class="btn btn-danger"> <i class="fa fa-arrow-left"></i>{{ __('project.back') }}</a>
                 <input type="hidden" name="_token" value="{{csrf_token()}}">
                 <button class="btn btn-success" type="submit" id="checkout-live-button"><i class="fa fa-money"></i> {{ __('project.pay') }}</button>
                 </form>
@@ -71,7 +71,7 @@
         var ele = $(this);
     
         $.ajax({
-            url: '{{ route('update_cart')}}',
+            url: "{{ route('update_cart')}}",
             method: "patch",
             data: {
                 _token: '{{ csrf_token() }}', 
@@ -91,7 +91,7 @@
     
         if(confirm("Ürünü sepetten çıkarmak istediğinize emin misiniz?")) {
             $.ajax({
-                url: '{{ route('remove_from_cart')}}',
+                url: "{{ route('remove_from_cart')}}",
                 method: "DELETE",
                 data: {
                     _token: '{{ csrf_token() }}', 

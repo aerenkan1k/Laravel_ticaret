@@ -8,7 +8,8 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
     <link href="{{ asset('css/style.css') }}" rel="stylesheet">
     <style>
-    .navbar{background-color: purple};
+    .navbar{background-color: darkblue};
+    
     </style>
 </head>
 <body>
@@ -28,17 +29,19 @@
                             <div class="col-lg-12 col-sm-12 col-12 text-center checkout">
                                 <a href="{{ route('books') }}" class="btn -btn-block">{{ __('project.books') }}</a>
                             </div>
+                            <div class="col-lg-12 col-sm-12 col-12 text-center checkout">
+                                <a href="{{ route('products') }}" class="btn -btn-block">{{ __('project.products') }}</a>
+                            </div>
                         </div>
                     </div>
-                 
                 </div>
             </div>
         </div>
         <li class="nav-item">
-            <a class="nav-link active" href="{{ url('/') }}">{{ __('project.homepage') }}</a>
+            <a class="nav-link active" href="{{ url('home') }}"><i class="fa fa-home"></i>{{ __('project.homepage') }}</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link active" href="{{ route('contact') }}">{{ __('project.contact') }}</a>
+            <a class="nav-link active" href="{{ route('contact') }}"><i class="fa fa-phone"></i>{{ __('project.contact') }}</a>
         </li>
       
         <li class="nav-item">
@@ -98,7 +101,7 @@
                                             @elseif(isset($details['name']))
                                                 {{ $details['name'] }}
                                             @else
-                                                <!-- diğer kategori -->
+                                                <!-- if elseler foreache çevrilecek -->
                                             @endif
                                     </p>
                                         <span class="price text-success">{{ $details['price'] }} ₺</span> <span class="count"> {{ __('project.quantity') }}:{{ $details['quantity'] }}</span>

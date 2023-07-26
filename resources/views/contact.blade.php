@@ -1,7 +1,7 @@
 @extends('layout')
     @section('content')
     <style>
-        .card{background-color: purple;}
+        .card{background-color: darkblue;}
         .alert{background-color: #fff;}
     </style>
 

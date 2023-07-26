@@ -5,6 +5,7 @@ use App\Http\Controllers\ProductsController;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\BookController;
 use App\Http\Controllers\PageController;
+use App\Http\Controllers\HomeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,9 +19,9 @@ use App\Http\Controllers\PageController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('home');
 });
-Route::prefix('')->middleware('auth')->group(function(){
+Route::prefix('/')->middleware('auth')->group(function(){
     Route::get('cart', [ProductsController::class, 'cart'])->name('cart')->middleware('setLocale');
 });
 
@@ -31,7 +32,7 @@ Route::get('add-to-cart/{id}', [ProductsController::class, 'addToCart'])->name('
 Route::patch('update-cart', [ProductsController::class, 'update'])->name('update_cart');
 Route::delete('remove-from-cart', [ProductsController::class, 'remove'])->name('remove_from_cart');
 
-Route::get('/home', [BookController::class, 'index'])->middleware('setLocale');  
+Route::get('/home', [HomeController::class, 'index'])->middleware('setLocale');  
 Route::get('/shopping-cart', [BookController::class, 'bookCart'])->name('shopping.cart');
 Route::get('/book/{id}', [BookController::class, 'addBooktoCart'])->name('addbook.to.cart');
 Route::patch('/update-shopping-cart', [BookController::class, 'updateCart'])->name('update.sopping.cart');
@@ -39,8 +40,5 @@ Route::delete('/delete-cart-product', [BookController::class, 'deleteProduct'])-
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home')->middleware('setLocale');
+Route::get('/products', [App\Http\Controllers\ProductsController::class, 'index'])->name('products')->middleware('setLocale');
 Route::get('/books', [App\Http\Controllers\BookController::class, 'index'])->name('books')->middleware('setLocale');
-Route::get('/send-email',[App\Http\Controllers\PageController::class,'index']);
-
-

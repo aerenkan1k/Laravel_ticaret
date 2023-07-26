@@ -33,6 +33,6 @@ return[
     'back' => 'Keep Shopping',
     'pay' => 'Pay',
     'logout' => 'Logout',
-    
+    'products' => 'Electronic Products',
 
 ];

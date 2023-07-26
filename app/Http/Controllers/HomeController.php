@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Controllers\ProductsController;
 use App\Models\Product;
+use App\Models\Book;
 
 class HomeController extends Controller
 {
@@ -24,8 +25,10 @@ class HomeController extends Controller
      * @return \Illuminate\Contracts\Support\Renderable
      */
     public function index()
-    {
-        $products = Product::all();
-        return view('products', compact('products'));
-    }
+{
+    $books = Book::all();
+    $products = Product::all();
+    
+    return view('home', compact('books', 'products'));
+}
 }
