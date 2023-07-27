@@ -1,4 +1,4 @@
-@extends('layout')
+@extends('layouts.app')
     @section('content')
     <style>
         .card{background-color: darkblue;}
@@ -16,7 +16,8 @@
                             <div class="alert">
                             {{ __('project.forms') }}
                             </div>
-                            <form class="row g-3 text-white">
+                            <form class="row g-3 text-white" action="{{ route('send_email') }}" method="post">
+                            @csrf
                                 <div class="col-md-6">
                                     <label for="email" class="form-label">Email</label>
                                     <input type="email" name="email" id="email" class="form-control" required>

@@ -1,4 +1,4 @@
-@extends('layout')
+@extends('layouts.app')
     
 @section('content')
 <table id="cart" class="table table-hover table-condensed">

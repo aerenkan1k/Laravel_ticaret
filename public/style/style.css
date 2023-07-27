@@ -74,8 +74,13 @@ body {
 }
   
 .productlist {
-    box-shadow: 0px 10px 30px rgb(0 0 0 / 10%);
+    box-shadow: 0px 10px 30px rgba(227, 54, 54, 0.1);
     border-radius: 10px;
     height: 100%;
     overflow: hidden;
 }
+.my-content {
+    border: 2px solid #af1919; 
+    padding: 10px; 
+  }
+  
