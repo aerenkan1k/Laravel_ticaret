@@ -34,5 +34,8 @@ return[
     'pay' => 'Pay',
     'logout' => 'Logout',
     'products' => 'Electronic Products',
+    'show' => 'Review Product',
+    'related_products' => 'Related Products',
+
 
 ];

@@ -4,15 +4,26 @@ namespace App\Http\Controllers;
  
 use Illuminate\Http\Request;
 use App\Models\Book;
- 
+
 class BookController extends Controller
 {
+    
     public function index()
     {
         $books = Book::all();
-        return view('books', compact('books'));
+        return view('book/books', compact('books'));
     }
-   
+    public function show_book($id)
+    {
+        $book = Book::findOrFail($id);
+
+        $relatedBooks = Book::where('id', '<>', $book->id)
+            ->take(4)
+            ->get();
+
+        return view('book/book_details', compact('book', 'relatedBooks'));
+    }
+    
     public function bookCart()
     {
         return view('cart');

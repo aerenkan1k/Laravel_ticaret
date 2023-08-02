@@ -34,6 +34,8 @@ return[
     'pay' => 'Ödeme',
     'logout' => 'Çıkış Yap',
     'products' => 'Elektronik Ürünler',
+    'show' => 'Ürünü İncele',
+    'related_products' => 'İlgili Ürünler',
 
 
 

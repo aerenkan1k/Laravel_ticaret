@@ -10,9 +10,16 @@ class ProductsController extends Controller
     public function index()
     {
         $products = Product::all();
-        return view('products', compact('products'));
+        return view('electronic/products', compact('products'));
     }
-  
+    public function show_electronic($id)
+    {
+        $product = Product::findOrFail($id);
+        $relatedProducts = Product::where('id', '<>', $product->id)
+        ->take(4)
+        ->get();
+        return view('electronic/product_details', compact('product', 'relatedProducts'));
+    }
     public function cart()
     {
         return view('cart');

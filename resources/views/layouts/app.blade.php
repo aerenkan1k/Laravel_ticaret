@@ -8,24 +8,37 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css">
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
-    <link href="{{ asset('admin_assets/css/style.css') }}" rel="stylesheet">
+    <link href="build/css/styles.css" rel="stylesheet" />
     <style>
-    .navbar{background-color: darkblue};
+        .navbar { background-color: darkblue; }
+        .card-title{color: black;}
+        .caption{color: black;}
+        .img-responsive-percent {
+            width: 100%;
+            height: auto;
+        }
+        .img-responsive {
+            width: 100%;
+            height: auto;
+        }
+        .slider-container {
+        border: 25px solid darkblue;
+        padding: 10px; 
+    }
     </style>
 </head>
 <body>
-@include('layouts.navbar')
+    @include('layouts.navbar')
     
-<br/>
-<br/>
-<br/>
-<div class="container">
+    <br/>
+    <br/>
+    <br/>
+    <div class="container">
+        @yield('content')
+    </div>
     
- 
-    
-    @yield('content')
-</div>
-    
-@yield('scripts')
+    @yield('scripts')
 </body>
 </html>
+
+
