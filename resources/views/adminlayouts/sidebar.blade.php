@@ -1,7 +1,7 @@
 <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
   
   <!-- Sidebar - Brand -->
-  <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+  <a class="sidebar-brand d-flex align-items-center justify-content-center">
     <div class="sidebar-brand-icon rotate-n-15">
       <i class="fas fa-laugh-wink"></i>
     </div>
@@ -12,17 +12,18 @@
   <hr class="sidebar-divider my-0">
   
   <!-- Nav Item - Dashboard -->
-  <li class="nav-item">
-    <a class="nav-link" href="{{ route('dashboard') }}">
-      <i class="fas fa-fw fa-tachometer-alt"></i>
-      <span>Dashboard</span></a>
-  </li>
-  
-  <li class="nav-item">
-    <a class="nav-link" href="{{ route('index') }}">
-      <i class="fas fa-fw fa-tachometer-alt"></i>
-      <span>Product</span></a>
-  </li>
+  <li class="nav-item dropdown">
+    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <i class="fas fa-fw fa-tachometer-alt"></i>
+        <span>Store</span>
+    </a>
+    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+        <a class="dropdown-item" href="{{ route('index') }}">All Products</a>
+        <a class="dropdown-item" href="{{ route('admin.elektronikler') }}">Electronics</a>
+        <a class="dropdown-item" href="{{ route('admin.kitaplar') }}">Books</a>
+    </div>
+</li>
+
   
   <li class="nav-item">
     <a class="nav-link" href="/profile">

@@ -8,5 +8,10 @@ use Illuminate\Database\Eloquent\Model;
 class Book extends Model
 {
     use HasFactory;
-    protected $fillable = ['name', 'author','photo','price'];
+    protected $fillable = ['name', 'price', 'author', 'book_description', 'photo'];
+    public function allProduct()
+{
+    return $this->belongsTo(AllProduct::class);
+}
+
 }

@@ -1,39 +1,58 @@
 @extends('adminlayouts.app')
 
-@section('title', 'Create Product')
-
 @section('contents')
-    <h1>Create Product</h1>
-    <form action="{{ route('admin.store') }}" method="POST">
-        @csrf
-        <div class="form-group">
-            <label for="name">Product Name</label>
-            <input type="text" name="name" id="name" class="form-control" required>
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header">Create New Product</div>
+
+                <div class="card-body">
+                    <form method="POST" action="{{ route('admin.store') }}" enctype="multipart/form-data">
+                        @csrf
+
+                        <div class="form-group">
+                            <label for="product_type">Product Type:</label>
+                            <select name="product_type" id="product_type" class="form-control">
+                                <option value="book">Book</option>
+                                <option value="product">Electronic</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="name">Name:</label>
+                            <input type="text" name="name" id="name" class="form-control">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="price">Price:</label>
+                            <input type="number" step="0.01" name="price" id="price" class="form-control">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="author">Author (for books only):</label>
+                            <input type="text" name="author" id="author" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label for="description">Details (for electronic only):</label>
+                            <textarea name="fulldescription" id="product_fulldescription" class="form-control" rows="4"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="description">Description:</label>
+                            <textarea name="description" id="description" class="form-control" rows="4"></textarea>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="photo">Photo:</label>
+                            <input type="file" name="photo" id="photo" class="form-control-file">
+                        </div>
+
+                        <button type="submit" class="btn btn-primary">Create Product</button>
+                    </form>
+                </div>
+            </div>
         </div>
-        <div class="form-group">
-            <label for="price">Price</label>
-            <input type="number" name="price" id="price" class="form-control" min="0" step="0.01" required>
-        </div>
-        <div class="form-group">
-            <label for="price">Photo</label>
-            <input type="text" name="photo" id="photo" class="form-control" min="0" step="0.01" required>
-        </div>
-        <div class="form-group">
-            <label for="price">Author</label>
-            <input type="text" name="author" id="author" class="form-control" min="0" step="0.01" required>
-        </div>
-        <div class="form-group">
-            <label for="price">Book Description</label>
-            <input type="text" name="book_description" id="book_description" class="form-control" min="0" step="0.01" required>
-        </div>
-        <div class="form-group">
-            <label for="type">Type</label>
-            <select name="type" id="type" class="form-control" required>
-                <option value="book">Book</option>
-                <option value="product">Product</option>
-            </select>
-        </div>
-        <button type="submit" class="btn btn-primary">Create</button>
-    </form>
+    </div>
+</div>
 @endsection
 

@@ -10,16 +10,7 @@ use App\Http\Controllers\ContactController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\HomeController;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider and all of them will
-| be assigned to the "web" middleware group. Make something great!
-|
-*/
+
 
 Route::get('/', function () {
     return view('home');
@@ -65,20 +56,17 @@ Route::middleware('auth')->group(function () {
     })->name('dashboard');
  
     
-        Route::get('create', [AdminController::class,'create'])->name('admin.create');
+        Route::get('/create', [AdminController::class,'create'])->name('admin.create');
         Route::post('store', [AdminController::class,'index'])->name('admin.store');
+        Route::post('/create', [AdminController::class, 'store'])->name('admin.store');
         Route::get('show/{id}', [AdminController::class,'show'])->name('admin.show');
         Route::get('edit/{id}', [AdminController::class,'edit'])->name('admin.edit');
         Route::put('edit/{id}', [AdminController::class,'update'])->name('admin.update');
         Route::delete('destroy/{id}', [AdminController::class,'destroy'])->name('admin.destroy');
         Route::get('index', [AdminController::class,'index'])->name('admin.index');
+        Route::get('elektronikler', [AdminController::class, 'elektronikler'])->name('admin.elektronikler');
+        Route::get('kitaplar', [AdminController::class, 'kitaplar'])->name('admin.kitaplar');
 
  
     Route::get('/profile', [App\Http\Controllers\Admin\AuthController::class, 'profile'])->name('profile');
-
-
-
-    Route::get('deneme', function () {
-        return view('layouts/deneme'); // Bu, resources/views klasöründe deneme.blade.php şablonunu döndürecektir.
-    });
 });

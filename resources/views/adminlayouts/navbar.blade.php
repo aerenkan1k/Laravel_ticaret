@@ -6,7 +6,7 @@
   </button>  
   
   <!-- Topbar Navbar -->
-  <ul class="navbar-nav mr-auto"> <!-- "mr-auto" ile anasayfa en solda görünecek -->
+  <ul class="navbar-nav mr-auto"> 
     <li class="nav-item">
       <a class="nav-link active" href="{{ url('home') }}">
         <i class="fa fa-home"></i>{{ __('project.homepage') }}
@@ -18,7 +18,7 @@
   <ul class="navbar-nav">
     <li class="nav-item dropdown no-arrow">
       <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        <span class="mr-2 d-none d-lg-inline text-gray-600 small">
+        <span class="mr-2 d-none d-lg-inline text-white-600 small">
           {{ auth()->user()->name }}
           <br>
           <small>{{ auth()->user()->level }}</small>

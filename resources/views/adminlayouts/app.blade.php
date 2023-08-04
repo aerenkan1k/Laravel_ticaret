@@ -16,6 +16,7 @@
   <style>
   .navbar {background-color: #4e73df !important;}
   .navbar-nav .nav-link {color: #ffffff !important;}
+  .sticky-footer{background-color: #4e73df !important;}
   </style>
 
 
