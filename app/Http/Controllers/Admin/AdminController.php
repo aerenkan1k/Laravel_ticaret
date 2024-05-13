@@ -3,8 +3,10 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Controllers\Admin\ImageController;
 use Illuminate\Http\Request;
 use App\Models\Product;
+use App\Models\Image;
 use App\Models\Book;
 use App\Models\AllProduct;
 use Illuminate\Support\Facades\Auth;
@@ -35,43 +37,46 @@ public function create()
 {
     return view('admin.create');
 }
-
 public function store(Request $request)
 {
     $productType = $request->input('product_type');
 
     switch ($productType) {
         case 'book':
+            $imageController = new ImageController();
+            $redirectResponse = $imageController->imageUpload($request);
+            $imageNames = $redirectResponse->getSession()->get('image');
+
             $book = Book::create([
                 'name' => $request->input('name'),
                 'price' => $request->input('price'),
                 'author' => $request->input('author'),
                 'book_description' => $request->input('description'),
-                'photo' => $request->file('photo')->store('photos', 'public'),
+                'photo' => json_encode($imageNames),
             ]);
             break;
-            case 'product':
-                $product = Product::create([
-                    'product_name' => $request->input('name'),
-                    'price' => $request->input('price'),
-                    'product_description' => $request->input('description'),
-                    'product_fulldescription' => $request->input('fulldescription'), 
-                    'photo' => $request->file('photo')->store('photos', 'public'),
-                ]);
-                break;
+
+        case 'product':
+            $imageController = new ImageController();
+            $redirectResponse = $imageController->imageUpload($request);
+            $imageNames = $redirectResponse->getSession()->get('image');
+
+            $product = Product::create([
+                'product_name' => $request->input('name'),
+                'price' => $request->input('price'),
+                'product_description' => $request->input('description'),
+                'product_fulldescription' => $request->input('fulldescription'), 
+                'photo' => json_encode($imageNames),
+            ]);
+            break;
+
         default:
             throw new Exception('Invalid product type');
     }
 
     return redirect()->route('admin.index');
 }
-
-    
-    
-
-    
-
-    public function show(string $id)
+public function show(string $id)
     {
         $product = Product::find($id);
         $book = Book::find($id);

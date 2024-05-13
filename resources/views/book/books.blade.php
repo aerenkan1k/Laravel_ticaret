@@ -7,7 +7,7 @@
         <div class="col-md-3 col-6 mb-4">
             <div class="card">
             <a href="{{ route('show_book', $book->id) }}">
-                <img src="{{ asset('img') }}/{{ $book->photo }}" width="186" height="271" class="img-responsive"/>
+                <img src="{{ asset('storage/' . trim($book->photo, '\'"')) }}" width="186" height="271" class="img-responsive"/>
                 <div class="card-body">
                     <h4 class="card-title">{{ $book->name }}</h4>
             </a>

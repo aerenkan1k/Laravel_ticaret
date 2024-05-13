@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\AuthController;
+use App\Http\Controllers\Admin\ImageController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductsController;
 use Illuminate\Support\Facades\Auth;
@@ -66,7 +67,11 @@ Route::middleware('auth')->group(function () {
         Route::get('index', [AdminController::class,'index'])->name('admin.index');
         Route::get('elektronikler', [AdminController::class, 'elektronikler'])->name('admin.elektronikler');
         Route::get('kitaplar', [AdminController::class, 'kitaplar'])->name('admin.kitaplar');
-
  
-    Route::get('/profile', [App\Http\Controllers\Admin\AuthController::class, 'profile'])->name('profile');
+        Route::get('/profile', [App\Http\Controllers\Admin\AuthController::class, 'profile'])->name('profile');   
+});
+
+        Route::controller(ImageController::class)->group(function(){
+        Route::get('image-upload','index');
+        Route::post('image-upload','imageUpload')->name('image.store');
 });

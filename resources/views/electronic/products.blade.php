@@ -7,7 +7,7 @@
         <div class="col-xs-12 col-sm-6 col-md-4" style="margin-top:10px;">
             <div class="card">
     <a href="{{ route('show_electronic', $product->id) }}">
-                <img src="{{ asset('img') }}/{{ $product->photo }}" class="card-img-top" alt="{{ $product->product_name }}" width="186" height="300" class="img-responsive"/>
+    <img src="{{ asset('storage/' . trim($product->photo, '\'"')) }}"  class="card-img-top" alt="{{ $product->product_name }}" width="186" height="300" class="img-responsive"/>
                 <div class="card-body">
                     <h4 class="card-title">{{ $product->product_name }}</h4>
     </a>

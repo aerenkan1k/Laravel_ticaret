@@ -7,7 +7,7 @@
     <div class="container px-4 px-lg-5 my-5">
         <div class="row gx-4 gx-lg-5 align-items-center">
             <div class="col-md-5">
-                <img src="{{ asset('img') }}/{{ $product->photo }}" alt="{{ $product->product_name }}" width="400" height="350" class="img-responsive-percent"/>
+            <img src="{{ asset('storage/' . trim($product->photo, '\'"')) }}" alt="{{ $product->product_name }}" width="400" height="350" class="img-responsive-percent"/>
             </div>
             <div class="col-md-6">
                 <h1 class="display-5 fw-bolder">{{ $product->product_name }}</h1>
@@ -34,7 +34,7 @@
                 <div class="card h-100">
                     <!-- Product image-->
                     <a href="{{ route('show_electronic', $relatedProduct->id) }}">
-                    <img src="{{ asset('img') }}/{{ $relatedProduct->photo }}" alt="{{ $relatedProduct->product_name }}" width="200" height="175" class="img-responsive"/>
+                    <img src="{{ asset('storage/' . trim($relatedProduct->photo, '\'"')) }}"  alt="{{ $relatedProduct->product_name }}" width="200" height="175" class="img-responsive"/>
                     <!-- Product details-->
                     <div class="card-body p-4">
                         <div class="text-center">

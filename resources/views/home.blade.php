@@ -12,7 +12,7 @@
                             <div class="col-md-3 col-6 mb-4">
                                 <div class="img_thumbnail productlist">
                                 <a href="{{ route('show_electronic', $product->id) }}">
-                                    <img src="{{ asset('img') }}/{{ $product->photo }}" width="186" height="241" class="img-responsive-home"/>
+                                    <img src="{{ asset('storage/' . trim($product->photo, '\'"')) }}"  width="186" height="241" class="img-responsive-home"/>
                                     <div class="caption">
                                     <h4 class="card-title">{{ $product->product_name }}</h4>
                                 </a>
@@ -29,7 +29,7 @@
                             <div class="col-md-3 col-6 mb-4">
                                 <div class="img_thumbnail productlist">
                                     <a href="{{ route('show_book', $book->id) }}">
-                                    <img src="{{ asset('img') }}/{{ $book->photo }}" width="186" height="241" class="img-responsive-home"/>
+                                    <img src="{{ asset('storage/' . trim($book->photo, '\'"')) }}"  width="186" height="241" class="img-responsive-home"/>
                                     <div class="card-body">
                                         <h4 class="card-title">{{ $book->name }}</h4>
                                     </a>

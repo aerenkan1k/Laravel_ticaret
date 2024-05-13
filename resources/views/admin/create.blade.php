@@ -33,10 +33,12 @@
                             <label for="author">Author (for books only):</label>
                             <input type="text" name="author" id="author" class="form-control">
                         </div>
+                        
                         <div class="form-group">
                             <label for="description">Details (for electronic only):</label>
                             <textarea name="fulldescription" id="product_fulldescription" class="form-control" rows="4"></textarea>
                         </div>
+                        
                         <div class="form-group">
                             <label for="description">Description:</label>
                             <textarea name="description" id="description" class="form-control" rows="4"></textarea>
@@ -44,7 +46,10 @@
 
                         <div class="form-group">
                             <label for="photo">Photo:</label>
-                            <input type="file" name="photo" id="photo" class="form-control-file">
+                            <input type="file" name="image[]" class="form-control @error('image.*') is-invalid @enderror" multiple>
+                            @error('image.*')
+                                <span class="text-danger">{{ $message }}</span>
+                            @enderror
                         </div>
 
                         <button type="submit" class="btn btn-primary">Create Product</button>
@@ -54,5 +59,7 @@
         </div>
     </div>
 </div>
-@endsection
 
+
+
+@endsection
